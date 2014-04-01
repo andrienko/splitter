@@ -14,18 +14,22 @@
   user-select: none;
   cursor: e-resize;
   width: 6px;
-  /*
-  &:after,&:before{
-    position: absolute;
-    display: block;
-    top: 0;
-    bottom: 0;
-    content:'';
-    width: 10px;
-    background: transparent;
-    opacity: 0;
-  }
-  &:after{left: 100%;}
-  &:before{right: 100%;}*/
   background: #888;
+}
+.divider_vertical:after,
+.divider_vertical:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  content: '';
+  width: 10px;
+  background: transparent;
+  opacity: 0;
+}
+.divider_vertical:after {
+  left: 100%;
+}
+.divider_vertical:before {
+  right: 100%;
 }
