@@ -47,14 +47,28 @@ var daSplitter = {
 
 }
 
+
+
+HTMLCollection.prototype.filter = function(tagname){
+
+    var filtered = [];
+    tagname=tagname.toLowerCase();
+
+    for(var i=0;i<this.length;i++)
+        if(this.item(i).tagName.toLowerCase() == tagname)
+            filtered.push(this.item(i));
+
+    return filtered;
+}
+
 window.addEventListener('load',function(){
 
 
-    Array.prototype.slice.call(document.getElementsByClassName('divided_left')).forEach(function(elem){
+    Array.prototype.slice.call(document.getElementsByClassName('vertically_divided')).forEach(function(elem){
 
-        var children = Array.prototype.slice.call(elem.getElementsByTagName('div'));
-
-
+        var children = elem.children.filter('div');
+        //var children = elem.children.filter('div');
+        console.log(children);
 
         elem.leftPart = children[0];
         elem.rightPart = children[1];

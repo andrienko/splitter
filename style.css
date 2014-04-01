@@ -1,10 +1,10 @@
-.divided_left {
+.vertically_divided {
   box-shadow: 0 0 0 2px #000;
 }
-.divided_left .left {
+.vertically_divided .left {
   background: #aaa;
 }
-.divided_left .right {
+.vertically_divided .right {
   background: #aaa;
 }
 .divider_vertical {
