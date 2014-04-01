@@ -30,7 +30,7 @@ var splitMe = {
     move:function(event){
         if(splitMe.currentElement){
 
-            var left = splitMe.currentElement.getBoundingClientRect().left;
+            var left = splitMe.currentElement.getBoundingClientRect().left; //TODO: offsetLeft?
             var sw = splitMe.currentElement.splitter.offsetWidth;
             var ew = splitMe.currentElement.clientWidth;
 
