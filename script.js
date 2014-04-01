@@ -23,8 +23,9 @@ var daSplitter = {
             if(newPos<0)newPos=0;
             if(newPos>ew - sw)newPos = ew - sw;
 
+            daSplitter.percent = newPos/ew * 100;
 
-            daSplitter.currentElement.splitter.style.left=(newPos/ew * 100) + '%';
+            daSplitter.currentElement.splitter.style.left= daSplitter.percent + '%';
             daSplitter.currentElement.rightPart.style.left = ((newPos+sw)/ew * 100) + '%';
             daSplitter.currentElement.leftPart.style.right = ((ew - newPos)/ew * 100) + '%';
 
@@ -32,6 +33,17 @@ var daSplitter = {
         }
         event.preventDefault();
     },
+
+    update : function(element){
+
+        var ew = element.clientWidth;
+        var sw = element.splitter.offsetWidth;
+        var newPos = element.percent/100*ew;
+
+        element.splitter.style.left=element.percent + '%';
+        element.rightPart.style.left=((newPos+sw)/ew * 100) + '%';
+        element.leftPart.style.right = ((ew - newPos)/ew * 100) + '%';
+    }
 
 }
 
@@ -76,7 +88,7 @@ window.addEventListener('load',function(){
 
         elem.splitter = divider;
         elem.appendChild(divider);
-
+        daSplitter.update(elem);
 
     })
 
