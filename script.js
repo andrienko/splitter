@@ -1,7 +1,6 @@
 var daSplitter = {
     currentElement : null,
 
-
     resizes : [],
     triggerResizes : function(){
         for(index in this.resizes){
@@ -10,32 +9,30 @@ var daSplitter = {
     },
     up:function(event){
         daSplitter.currentElement = null;
-        daSplitter.currentSplitter = null;
-
     },
     move:function(event){
         if(daSplitter.currentElement){
 
             var left = daSplitter.currentElement.getBoundingClientRect().left;
-            var sw = daSplitter.currentSplitter.offsetWidth;
+            var sw = daSplitter.currentElement.splitter.offsetWidth;
             var ew = daSplitter.currentElement.clientWidth;
+
+            //currentElement.percent
 
             var newPos = event.clientX - left - sw / 2;
             if(newPos<0)newPos=0;
             if(newPos>ew - sw)newPos = ew - sw;
 
 
-
-            console.log(left,sw,ew,newPos,event.clientX);
-
-            daSplitter.currentSplitter.style.left=(newPos/ew * 100) + '%';
+            daSplitter.currentElement.splitter.style.left=(newPos/ew * 100) + '%';
             daSplitter.currentElement.rightPart.style.left = ((newPos+sw)/ew * 100) + '%';
             daSplitter.currentElement.leftPart.style.right = ((ew - newPos)/ew * 100) + '%';
 
             daSplitter.triggerResizes();
         }
         event.preventDefault();
-    }
+    },
+
 }
 
 window.addEventListener('load',function(){
@@ -75,7 +72,6 @@ window.addEventListener('load',function(){
 
         divider.onmousedown = function(event){
             daSplitter.currentElement = elem;
-            daSplitter.currentSplitter = divider;
         };
 
         elem.splitter = divider;
