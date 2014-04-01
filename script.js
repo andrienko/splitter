@@ -1,4 +1,4 @@
-HTMLCollection.prototype.filter = function(tagname){
+HTMLCollection.prototype.filterByTagName = function(tagname){
 
     var filtered = [];
     tagname=tagname.toLowerCase();
@@ -10,43 +10,42 @@ HTMLCollection.prototype.filter = function(tagname){
     return filtered;
 };
 
-var daSplitter = {
+Element.prototype.hasClass = function(className){
+    // Replace with brutal ternary for sake of bad readability.
+    if (this.classList)return this.classList.contains(className);
+    return new RegExp('(^| )' + className + '( |$)', 'gi').test(this.className);
+}
+
+var splitMe = {
     currentElement : null,
     crutch:null,
     triggerResizes : function(){
         for(var index in this.resizes)
-            daSplitter.update(this.resizes[index]);
+            splitMe.update(this.resizes[index]);
 
     },
-
     up:function(event){
-        daSplitter.currentElement = null;
+        splitMe.currentElement = null;
     },
     move:function(event){
-        if(daSplitter.currentElement){
+        if(splitMe.currentElement){
 
-            var left = daSplitter.currentElement.getBoundingClientRect().left;
-            var sw = daSplitter.currentElement.splitter.offsetWidth;
-            var ew = daSplitter.currentElement.clientWidth;
-
-            //currentElement.percent
+            var left = splitMe.currentElement.getBoundingClientRect().left;
+            var sw = splitMe.currentElement.splitter.offsetWidth;
+            var ew = splitMe.currentElement.clientWidth;
 
             var newPos = event.clientX - left - sw / 2;
             if(newPos<0)newPos=0;
             if(newPos>ew - sw)newPos = ew - sw;
 
-            daSplitter.currentElement.percent = newPos/ew * 100;
+            splitMe.currentElement.percent = newPos/ew * 100;
 
-            /*daSplitter.currentElement.splitter.style.left = daSplitter.currentElement.percent + '%';
-            daSplitter.currentElement.rightPart.style.left = ((newPos+sw)/ew * 100) + '%';
-            daSplitter.currentElement.leftPart.style.right = ((ew - newPos)/ew * 100) + '%';*/
-            daSplitter.update(daSplitter.currentElement);
+            //splitMe.update(splitMe.currentElement);
+            splitMe.triggerResizes();
 
-            //daSplitter.triggerResizes();
         }
         event.preventDefault();
     },
-
     update : function(element){
 
         var ew = element.clientWidth;
@@ -61,12 +60,14 @@ var daSplitter = {
         element.rightPart.style.right='0';
         element.leftPart.style.left='0';
     },
-
     init : function(){
-        daSplitter.resizes=Array.prototype.slice.call(document.getElementsByClassName('vertically_divided'));
-        daSplitter.resizes.forEach(function(elem){
+        splitMe.resizes=Array.prototype.slice.call(document.getElementsByClassName('vertically_divided')).
+            concat(Array.prototype.slice.call(document.getElementsByClassName('horizontally_divided')));
 
-            var children = elem.children.filter('div');
+        splitMe.resizes.forEach(function(elem){
+
+            elem.vertical = elem.hasClass('vertically_divided');
+            var children = elem.children.filterByTagName('div');
 
             elem.leftPart = children[0];
             elem.rightPart = children[1];
@@ -90,26 +91,27 @@ var daSplitter = {
 
             elem.percent = 50;
 
+
             var divider = document.createElement('div');
             divider.className = 'divider_vertical';
             divider.style.cssText ='top:0;bottom:0;position:absolute;';
 
             divider.onmousedown = function(event){
-                daSplitter.currentElement = elem;
+                splitMe.currentElement = elem;
             };
 
             elem.splitter = divider;
             elem.appendChild(divider);
-            daSplitter.update(elem);
+            splitMe.update(elem);
 
         })
 
-        window.addEventListener('mousemove',daSplitter.move);
-        window.addEventListener('mouseup',daSplitter.up);
+        window.addEventListener('mousemove',splitMe.move);
+        window.addEventListener('mouseup',splitMe.up);
 
         window.addEventListener('resize',function(){
             setTimeout(function(){
-                daSplitter.triggerResizes();
+                splitMe.triggerResizes();
             },20);
         });
         //TODO: Touch support
@@ -120,6 +122,6 @@ var daSplitter = {
 
 window.addEventListener('load',function(){
 
-    daSplitter.init();
+    splitMe.init();
 
 });
