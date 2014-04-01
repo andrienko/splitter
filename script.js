@@ -24,12 +24,13 @@ var daSplitter = {
             if(newPos<0)newPos=0;
             if(newPos>ew - sw)newPos = ew - sw;
 
+
+
             console.log(left,sw,ew,newPos,event.clientX);
 
-            daSplitter.currentSplitter.style.left=newPos + 'px';
-
-            daSplitter.currentElement.rightPart.style.left = Math.ceil(newPos+sw) + 'px';
-            daSplitter.currentElement.leftPart.style.right = Math.ceil(ew - newPos) + 'px';
+            daSplitter.currentSplitter.style.left=(newPos/ew * 100) + '%';
+            daSplitter.currentElement.rightPart.style.left = ((newPos+sw)/ew * 100) + '%';
+            daSplitter.currentElement.leftPart.style.right = ((ew - newPos)/ew * 100) + '%';
 
             daSplitter.triggerResizes();
         }
