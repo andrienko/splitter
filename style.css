@@ -1,0 +1,38 @@
+.divided_left {
+  box-shadow: 0 0 0 2px #000;
+  border: 5px solid #888;
+}
+.divided_left .left {
+  background: #aaa;
+  border: 2px solid #000;
+}
+.divided_left .right {
+  background: #aaa;
+  border: 2px solid #000;
+}
+.divider_vertical {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: e-resize;
+  width: 6px;
+  background: #888;
+}
+.divider_vertical:after,
+.divider_vertical:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  content: '';
+  width: 10px;
+  background: transparent;
+  opacity: 0;
+}
+.divider_vertical:after {
+  left: 100%;
+}
+.divider_vertical:before {
+  right: 100%;
+}

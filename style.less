@@ -1,0 +1,37 @@
+.divided_left{
+  box-shadow: 0 0 0 2px #000;
+  border:5px solid #888;
+  .left{
+    background: #aaa;
+    border:2px solid #000;
+  }
+  .right{
+    background: #aaa;
+    border:2px solid #000;
+  }
+}
+
+.divider_vertical{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  cursor: e-resize;
+
+  width: 6px;
+  &:after,&:before{
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    content:'';
+    width: 10px;
+    background: transparent;
+    opacity: 0;
+  }
+  &:after{left: 100%;}
+  &:before{right: 100%;}
+
+  background: #888;
+}
