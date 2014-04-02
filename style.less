@@ -1,35 +1,11 @@
-.vertically_divided{
-  box-shadow: 0 0 0 2px #000;
+@splitter_width : 5px;
 
-  .left{
-    background: #aaa;
-  }
-  .right{
-    background: #aaa;
-  }
-}
-
-.divider_vertical{
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  cursor: e-resize;
-
-  width: 6px;
-  &:after,&:before{
-    position: absolute;
-    display: block;
-    top: 0;
-    bottom: 0;
-    content:'';
-    width: 10px;
-    background: transparent;
-    opacity: 0;
-  }
-  &:after{left: 100%;}
-  &:before{right: 100%;}
-
+.divider_vertical, .divider_horizontal{
   background: #888;
 }
+
+.divider_vertical{width: @splitter_width;cursor: ew-resize;}
+.divider_horizontal{height:@splitter_width;cursor: ns-resize;}
+
+// Uncomment if you want invisible clickable paddings around splitters (useful for thin splitters)
+// @import "paddings";

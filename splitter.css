@@ -1,0 +1,12 @@
+.divider_vertical,
+.divider_horizontal {
+  background: #888;
+}
+.divider_vertical {
+  width: 5px;
+  cursor: ew-resize;
+}
+.divider_horizontal {
+  height: 5px;
+  cursor: ns-resize;
+}
