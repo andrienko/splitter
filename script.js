@@ -1,3 +1,4 @@
+if(typeof HTMLCollection.prototype.filterByTagName == 'undefined')
 HTMLCollection.prototype.filterByTagName = function(tagname){
 
     var filtered = [];
@@ -10,6 +11,7 @@ HTMLCollection.prototype.filterByTagName = function(tagname){
     return filtered;
 };
 
+if(typeof Element.prototype.hasClass == 'undefined')
 Element.prototype.hasClass = function(className){
     // Replace with brutal ternary for sake of bad readability.
     if (this.classList)return this.classList.contains(className);
