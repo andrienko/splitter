@@ -20,7 +20,7 @@ function NodeListAsArray(nl){
 
 function addEvent(element,event,handler){
     if(element.addEventListener)element.addEventListener(event,handler);
-    else element.attachEvent('on'+event,handler);
+    else element.attachEvent('on'+event,function(){handler.call(element)});
 }
 
 // I use this to filter child nodes by tag name. Should i use queryselectorall? Thats the question.
