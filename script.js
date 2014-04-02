@@ -29,6 +29,9 @@ var splitMe = {
     up:function(event){
         splitMe.currentElement = null;
     },
+    click:function(elem){
+        splitMe.currentElement = elem;
+    },
     move:function(event){
         if(splitMe.currentElement){
 
@@ -98,9 +101,7 @@ var splitMe = {
             divider.className = 'divider_vertical';
             divider.style.cssText ='top:0;bottom:0;position:absolute;';
 
-            divider.onmousedown = function(event){
-                splitMe.currentElement = elem;
-            };
+            divider.addEventListener('mousedown',splitMe.click);
 
             elem.splitter = divider;
             elem.appendChild(divider);

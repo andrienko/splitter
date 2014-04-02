@@ -25,7 +25,10 @@ var splitMe = {
 
     },
     up:function(event){
-        splitMe.currentElement = null;
+        if(splitMe.currentElement) {
+            splitMe.currentElement.splitter.className = splitMe.currentElement.vertical ? 'divider_vertical' : 'divider_horizontal';
+            splitMe.currentElement = null;
+        }
     },
     move:function(event){
         if(splitMe.currentElement){
@@ -129,9 +132,14 @@ var splitMe = {
             divider.style.cssText =elem.vertical?'top:0;bottom:0;position:absolute;':'left:0;right:0;position:absolute;';
 
             divider.onmousedown = function(event){
+                elem.splitter.className += ' dragged';
                 splitMe.currentElement = elem;
                 event.preventDefault();
             };
+
+            divider.addEventListener('touchstart',function(){
+                arert('Fuck you!');
+            });
 
             elem.splitter = divider;
             elem.appendChild(divider);
