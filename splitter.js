@@ -1,10 +1,31 @@
+// Because IE8 has no forEach
+
+if (typeof Array.prototype.forEach == 'undefined') {
+    Array.prototype.forEach = function (callback) {
+        for (var i = 0; i < this.length; i++) {
+            callback.apply(this, [this[i], i, this]);
+        }
+    };
+}
+
+// Because IE8 has no nodelist but static nodelist and no applyable slice
+
+function NodeListAsArray(nl){
+    var arr=[];
+    for(var i=-1,l=nl.length>>>0;++i!==l;arr[i]=nl[i]);
+    return arr;
+}
+
+// Because IE8 event model is funny
+
 function addEvent(element,event,handler){
     if(element.addEventListener)element.addEventListener(event,handler);
     else element.attachEvent('on'+event,handler);
 }
 
-HTMLCollection.prototype.filterByTagName = function(tagname){
+// I use this to filter child nodes by tag name. Should i use queryselectorall? Thats the question.
 
+HTMLCollection.prototype.filterByTagName = function(tagname){
     var filtered = [];
     tagname=tagname.toLowerCase();
 
@@ -15,22 +36,8 @@ HTMLCollection.prototype.filterByTagName = function(tagname){
     return filtered;
 };
 
-if (typeof Array.prototype.forEach == 'undefined') {
-    Array.prototype.forEach = function (callback) {
-        for (var i = 0; i < this.length; i++) {
-            callback.apply(this, [this[i], i, this]);
-        }
-    };
-}
-
-function NodeListAsArray(nl){
-    var arr=[];
-    for(var i=-1,l=nl.length>>>0;++i!==l;arr[i]=nl[i]);
-    return arr;
-}
-
 Element.prototype.hasClass = function(className){
-    // Replace with brutal ternary for sake of bad readability.
+    // TODO: Replace with brutal ternary for sake of bad readability.
     if (this.classList)return this.classList.contains(className);
     return new RegExp('(^| )' + className + '( |$)', 'gi').test(this.className);
 }
