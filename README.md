@@ -30,8 +30,14 @@ Then add horizontally_divided or vertically_divided class to the element you wan
 The element you are adding the class to must have two first-level div elements in it, which will become left
 and right parts of split container
 
-Modifying
+Changing appearance
 ---
 
 The splitter appearance is defined in splitter.css file (which source is style.less). You can add whatever style
 you wish to anything.
+
+Minified version
+---
+Sometimes I make it using [a website](http://closure-compiler.appspot.com/home) (because I'm lazy and also I work on
+three different environments and also because I'm lazy). I dont do this wery often and most likely the minified version
+is not the recent.
