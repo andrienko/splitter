@@ -22,10 +22,10 @@ Add css and js files to your project:
 
 Then add horizontally_divided or vertically_divided class to the element you want splitted
 
-        <div class="vertically_divided">
-            <div>Left</div>
-            <div>Right</div>
-        </div>
+    <div class="vertically_divided">
+        <div>Left</div>
+        <div>Right</div>
+    </div>
 
 The element you are adding the class to must have two first-level div elements in it, which will become left
 and right parts of split container
@@ -35,6 +35,9 @@ Changing appearance
 
 The splitter appearance is defined in splitter.css file (which source is style.less). You can add whatever style
 you wish to anything.
+
+.divider_vertical and .divider_horizontal are classes of the div that splits areas vertically and horizontally respectively.
+It also gets .dragged class when the splitter is being dragged.
 
 Minified version
 ---
