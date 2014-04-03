@@ -1,28 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Splitter</title>
+    <meta charset="UTF-8">
+    <title>Splitter test</title>
     <script type="text/javascript" src="splitter.min.js"></script>
     <link rel="stylesheet" type="text/css" href="splitter.css"/>
 </head>
 <body>
+<div class="wrapper">
+    <h1>Splitter script</h1>
 
-    <div id="data"></div>
+    <p>Splitter is a small JS script with no dependencies to create containers splitted horizontally or vertically with moveable splitter bar like the one below:</p>
 
-    <div class="vertically_divided" style="height: 500px;border:5px solid #888;">
-        <div class="horizontally_divided">
-            <div>Hello.</div>
-            <div>Hey, you! Yes, you!</div>
-        </div>
-        <div class="vertically_divided">
-            <div>Hello.</div>
-            <div class="horizontally_divided">
-                <div>Hello.</div>
-                <div>Hey, you! Yes, you!</div>
-            </div>
+    <div class="vertically_divided demo1">
+        <div>Drag this -></div>
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ipsum repudiandae excepturi voluptates ipsa reiciendis perferendis. Atque at delectus hic dolorum minima quod adipisci voluptate officiis tempore architecto aliquid debitis?</div>
+    </div>
+
+    <p>The computed sizes are set in percent for sake of resizing. For now the splitter is 50% by default.</p>
+    <h2>Creating a splitter</h2>
+    <p>There are two types of splitters - vertical and horizontal. To split a div - add 'vertically_divided' or 'horizontally_divided' class to it (make sure the dive you are splitting has at least two child divs, which will be the halves of the div. Also make sure that an element has some height defined. Maybe later the automatic calculation will be added, but right now you have to define height explicitly.</p>
+    <code>&ltdiv class="vertically_divided" style="height:60px;">
+        &ltdiv>The left part&lt/div>
+        &ltdiv>The right part&lt/div>
+        &lt/div>
+    </code>
+    <p>The code above will produce the result below:</p>
+    <div class="vertically_divided" style="height:60px;">
+        <div>The left part</div>
+        <div>The right part</div>
+    </div>
+    <p>Of course, you can use CSS to add own style to everything:</p>
+
+    <div class="vertically_divided demo1 demo2">
+        <div>Drag this -></div>
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ipsum repudiandae excepturi voluptates ipsa reiciendis perferendis. Atque at delectus hic dolorum minima quod adipisci voluptate officiis tempore architecto aliquid debitis?</div>
+    </div>
+
+    <p>And, of course, you can nest several splitters:</p>
+
+    <div class="vertically_divided demo1 demo2 demo3">
+        <div>Left part</div>
+        <div class="horizontally_divided demo1 demo2 demo3">
+            <div>Right part top</div>
+            <div>Right part Bottom</div>
         </div>
     </div>
 
+</div>
 </body>
 </html>

@@ -1,3 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+p {
+  margin: 1em 0;
+}
+code {
+  margin: 1em 0;
+  padding: 1em;
+  background: #000;
+  color: #fff;
+  display: block;
+  white-space: pre-wrap;
+}
+body {
+  font: normal 18px "Trebuchet MS", Helvetica, sans-serif;
+  background: #CCC;
+}
+.wrapper {
+  padding: 2em 1em;
+  width: 90%;
+  margin: 20px auto;
+  background: #fff;
+}
+.demo1 {
+  width: 70%;
+  border: 2px solid #888;
+  height: 50px;
+  margin: 2em auto;
+}
+.demo1 .divider_vertical {
+  background: #888;
+}
+.demo1 .divider_vertical.dragged {
+  background: #f00;
+}
+.demo1 div:first-child {
+  padding: 10px;
+  text-align: right;
+}
+.demo1 .text {
+  text-align: justify;
+  font-size: 0.5em;
+}
+.demo1 .divider_vertical {
+  width: 2px;
+  cursor: ew-resize;
+}
+.demo1 .divider_horizontal {
+  height: 2px;
+  cursor: ns-resize;
+}
+.demo2 {
+  height: 60px;
+  border-radius: 10px;
+  background: #CCC;
+  border: 1px solid #000;
+  box-shadow: 0 1px 2px;
+}
+.demo2:active,
+.demo2:active .demo2 {
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px 10px #00F, inset 0 0 20px 10px #00f;
+  background: #000;
+}
+.demo2:active .divider_vertical,
+.demo2:active .demo2 .divider_vertical,
+.demo2:active .divider_horizontal,
+.demo2:active .demo2 .divider_horizontal {
+  background: #FFF;
+  box-shadow: 0 0 20px 10px #00f;
+}
+.demo2 .divider_vertical {
+  background: #FFF;
+  width: 2px;
+  box-shadow: 1px 0 1px #000;
+}
+.demo2 .divider_vertical.dragged {
+  background: #FFF;
+  box-shadow: 0 0 20px 10px #00f;
+}
+.demo2 .divider_horizontal {
+  background: #FFF;
+  height: 2px;
+  box-shadow: 0 1px 1px #000;
+}
+.demo3 {
+  height: 500px;
+}
+.demo3 * {
+  text-align: left !important;
+}
+.demo3 .demo3 {
+  border-radius: 0;
+  border: none !important;
+  width: 100%;
+  margin: 0;
+}
 .divider_vertical,
 .divider_horizontal {
   background: #888;
@@ -28,7 +132,7 @@
 .divider_vertical:before {
   top: 0;
   bottom: 0;
-  width: 4px;
+  width: 10px;
 }
 .divider_vertical:after {
   left: 100%;
@@ -40,7 +144,7 @@
 .divider_horizontal:before {
   left: 0;
   right: 0;
-  height: 4px;
+  height: 10px;
 }
 .divider_horizontal:after {
   top: 100%;
