@@ -1,0 +1,50 @@
+.divider_vertical,
+.divider_horizontal {
+  background: #888;
+}
+.divider_vertical.dragged,
+.divider_horizontal.dragged {
+  background: #f00;
+}
+.divider_vertical {
+  width: 2px;
+  cursor: ew-resize;
+}
+.divider_horizontal {
+  height: 2px;
+  cursor: ns-resize;
+}
+.divider_vertical:after,
+.divider_horizontal:after,
+.divider_vertical:before,
+.divider_horizontal:before {
+  background: transparent;
+  opacity: 0;
+  position: absolute;
+  display: block;
+  content: '';
+}
+.divider_vertical:after,
+.divider_vertical:before {
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+.divider_vertical:after {
+  left: 100%;
+}
+.divider_vertical:before {
+  right: 100%;
+}
+.divider_horizontal:after,
+.divider_horizontal:before {
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+.divider_horizontal:after {
+  top: 100%;
+}
+.divider_horizontal:before {
+  bottom: 100%;
+}
