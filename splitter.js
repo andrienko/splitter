@@ -82,7 +82,9 @@ var splitMe = {
     update : function(element){
         var es = element.vertical?element.clientWidth:element.clientHeight;
         var newPos = element.percent/100*es;
-        var bp = ((newPos+element.splitter.offsetWidth)/es * 100) + '%';
+        var sw = element.vertical?element.splitter.offsetWidth:element.splitter.offsetHeight;
+        var bp = ((newPos+sw)/es * 100) + '%';
+        console.log(newPos);
         var ap = ((es - newPos)/es * 100) + '%';
         element.splitter.style[element.vertical?'left':'top']=element.percent + '%';
         if(element.vertical){
