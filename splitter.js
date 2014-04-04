@@ -88,12 +88,12 @@ var splitMe = {
         var ap = ((es - newPos)/es * 100) + '%';
         element.splitter.style[element.vertical?'left':'top']=element.percent + '%';
         if(element.vertical){
-            element.b.css({left:bp, right:0});
-            element.a.css({right:ap,left:0});
+            element.b.css({left:bp, right:0, top:0, bottom:0});
+            element.a.css({right:ap,left:0, top:0, bottom:0});
         }
         else{
-            element.b.css({top:bp,bottom:0});
-            element.a.css({bottom:ap,top:0});
+            element.b.css({top:bp,bottom:0, left:0, right:0});
+            element.a.css({bottom:ap,top:0, left:0, right:0});
         }
     },
     init : function(){
