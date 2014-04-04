@@ -38,11 +38,17 @@
 
     <p>And, of course, you can nest several splitters:</p>
 
-    <div class="vertically_divided demo1 demo2 demo3">
-        <div>Left part</div>
-        <div class="horizontally_divided demo1 demo2 demo3">
-            <div>Right part top</div>
-            <div>Right part Bottom</div>
+    <div class="vertically_divided" style="height: 500px;border:2px solid #888;">
+        <div style="background: #888;">Left part</div>
+        <div class="horizontally_divided">
+            <div class="vertically_divided">
+                <div class="horizontally_divided">
+                    <div  style="background: #CCC;">Right part top left top</div>
+                    <div style="background: #BBB;">Right part top left bottom</div>
+                </div>
+                <div style="background: #AAA;">Right part top right</div>
+            </div>
+            <div style="background: #999;">Right part Bottom</div>
         </div>
     </div>
 

@@ -90,18 +90,6 @@ body {
   height: 2px;
   box-shadow: 0 1px 1px #000;
 }
-.demo3 {
-  height: 500px;
-}
-.demo3 * {
-  text-align: left !important;
-}
-.demo3 .demo3 {
-  border-radius: 0;
-  border: none !important;
-  width: 100%;
-  margin: 0;
-}
 .divider_vertical,
 .divider_horizontal {
   background: #888;
