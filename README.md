@@ -3,8 +3,8 @@ Splitter
 
 [Demo](http://andrienko.github.io/splitter/)
 
-Splitter is a small JS script with no dependencies to create containers splitted horizontally or vertically
-with moveable splitter bar. It is not a library! Just in case.
+Splitter is a small (~3KB) JS script with **no dependencies** to create containers splitted horizontally or vertically
+with moveable splitter bar. It is **not a library**! Just in case.
 
 It should work in modern browsers and even in **IE8+** *(According to [this site](http://www.netmarketshare.com/browser-market-share.aspx?qprid=2&qpcustomd=0), when the code of
 this script was written in April of 2014 the market share of IE8 was 20% amongst ALL browsers, which means that 1/5 of
