@@ -39,9 +39,7 @@ It also gets .dragged class when the splitter is being dragged.
 
 Minified version
 ---
-Sometimes I make it using [a website](http://closure-compiler.appspot.com/home) (because I'm lazy and also I work on
-three different environments and also because I'm lazy). I dont do this wery often and most likely the minified version
-is not the recent.
+..is built with closure compiler.
 
 Plans for future
 ---
